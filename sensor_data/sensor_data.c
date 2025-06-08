@@ -51,9 +51,10 @@ int sensor_data() {
 }
 
 int main(){
-    while(1){
+    for (size_t i = 0; i < 12; i++)
+    {
         sensor_data();
-        sleep(10);
+        sleep(3600);
     }
     return 0;
 }

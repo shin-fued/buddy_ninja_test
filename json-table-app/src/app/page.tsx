@@ -25,7 +25,7 @@ export default function Home() {
 
     fetchData(); // initial fetch
 
-    const intervalId = setInterval(fetchData, 3600000); // fetch every 5 seconds
+    const intervalId = setInterval(fetchData, 5); 
 
     return () => clearInterval(intervalId); // cleanup on component unmount
   }, []);
@@ -51,7 +51,7 @@ export default function Home() {
 
   const link = document.createElement('a');
   link.href = url;
-  link.setAttribute('download', 'telemetry_data.csv');
+  link.setAttribute('download', 'gps_data.csv');
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -60,15 +60,16 @@ export default function Home() {
 
   return (
     <main className="min-h-screen p-8">
-      <button
+      {data && data.length > 0 ? (
+         <div className="container">
+          <div className="centered-div">
+            <h1 className="text-2xl font-bold mb-6">GPS collar Data</h1>
+             <button
   onClick={downloadCSV}
   className="mb-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
 >
   Download CSV
 </button>
-      <h1 className="text-2xl font-bold mb-6">Tracking Data</h1>
-
-      {data && data.length > 0 ? (
         <table className="table-auto border-collapse border">
           <thead>
             <tr>
@@ -89,9 +90,12 @@ export default function Home() {
             ))}
           </tbody>
         </table>
+      </div>
+      </div>
       ) : (
         <p>Loading or no data available...</p>
       )}
+      
     </main>
   );
 }

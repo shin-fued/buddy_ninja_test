@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.center-div {
+          width: 50%; /* Or any desired width */
+          margin: 0 auto; /* 0 for top and bottom, auto for left and right */
+        }
+
+.container {
+          display: flex;
+          justify-content: center; /* Horizontal alignment */
+          align-items: center; /* Vertical alignment (optional) */
+          height: 100vh; /* Or any desired height */
+        }

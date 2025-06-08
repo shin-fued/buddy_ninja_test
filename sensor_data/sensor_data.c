@@ -26,7 +26,7 @@ int sensor_data() {
     curl = curl_easy_init();
 
     if(curl) {
-        curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:8080/upload");
+        curl_easy_setopt(curl, CURLOPT_URL, "http://backend:8080/upload");
 
         struct curl_slist *headers = NULL;
         headers = curl_slist_append(headers, "Content-Type: application/json");

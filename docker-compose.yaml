@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  backend:
+    build: ./server
+    ports:
+      - "8080:8080"
+    restart: always
+
+  frontend:
+    build: ./json-table-app
+    ports:
+      - "3000:3000"
+    restart: always
+  
+  sensor:
+    build: ./sensor_data
+    depends_on:
+      - backend
+
+
+    

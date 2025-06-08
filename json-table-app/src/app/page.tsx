@@ -25,7 +25,7 @@ export default function Home() {
 
     fetchData(); // initial fetch
 
-    const intervalId = setInterval(fetchData, 5000); // fetch every 5 seconds
+    const intervalId = setInterval(fetchData, 3600000); // fetch every 5 seconds
 
     return () => clearInterval(intervalId); // cleanup on component unmount
   }, []);
